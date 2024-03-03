@@ -24,6 +24,7 @@ const getTodo = async (req, res) => {
 };
 
 const createTodo = async (req, res) => {
+  console.log(req.body)
   const { title, description, writer } = req.body;
 
   if (!title || !description || !writer) {
@@ -59,7 +60,7 @@ const editTodo = async (req, res) => {
 
 const deleteTodo = async (req, res) => {
   await todoModel.findByIdAndDelete(req.params.id);
-  res.status(200).json({msg:"todo deleted"})
+  res.status(200).json({ msg: "todo deleted" });
 };
 
 export { getAlltodos, getTodo, createTodo, editTodo, deleteTodo };
